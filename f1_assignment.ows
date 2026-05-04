@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<scheme version="2.0" title="F1 Race Result Classification" description="Practical Assignment 2 – All three parts: Data Analysis, Unsupervised ML, Supervised ML">
+    <nodes>
+        <!-- DATA LOADING -->
+        <node id="0"  name="File"              qualified_name="Orange.widgets.data.owfile.OWFile"                                          project_name="Orange3" version="" title="F1 Dataset (load f1_orange.tab)" position="(80, 350)" />
+        <node id="1"  name="Data Table"        qualified_name="Orange.widgets.data.owtable.OWDataTable"                                    project_name="Orange3" version="" title="Data Table"                      position="(280, 180)" />
+        <node id="2"  name="Column Statistics" qualified_name="Orange.widgets.data.owcolumnstatistics.OWColumnStatistics"                  project_name="Orange3" version="" title="Column Statistics"               position="(280, 350)" />
+        <node id="3"  name="Data Sampler"      qualified_name="Orange.widgets.data.owdatasampler.OWDataSampler"                            project_name="Orange3" version="" title="Train/Test Split 80/20"          position="(280, 520)" />
+        <!-- PART I VISUALISATIONS -->
+        <node id="4"  name="Scatter Plot"      qualified_name="Orange.widgets.visualize.owscatterplot.OWScatterPlot"                       project_name="Orange3" version="" title="Scatter: Grid vs Laps"          position="(520, 80)"  />
+        <node id="5"  name="Scatter Plot"      qualified_name="Orange.widgets.visualize.owscatterplot.OWScatterPlot"                       project_name="Orange3" version="" title="Scatter: Grid vs Round"         position="(520, 220)" />
+        <node id="6"  name="Bar Plot"          qualified_name="Orange.widgets.visualize.owbarplot.OWBarPlot"                               project_name="Orange3" version="" title="Bar Plot - Grid by Class"       position="(520, 360)" />
+        <node id="7"  name="Bar Plot"          qualified_name="Orange.widgets.visualize.owbarplot.OWBarPlot"                               project_name="Orange3" version="" title="Bar Plot - Laps by Class"       position="(520, 500)" />
+        <node id="8"  name="Distributions"     qualified_name="Orange.widgets.visualize.owdistributions.OWDistributions"                   project_name="Orange3" version="" title="Distributions"                  position="(520, 640)" />
+        <node id="9"  name="Box Plot"          qualified_name="Orange.widgets.visualize.owboxplot.OWBoxPlot"                               project_name="Orange3" version="" title="Box Plot"                       position="(520, 780)" />
+        <!-- PART II UNSUPERVISED -->
+        <node id="10" name="Distances"                  qualified_name="Orange.widgets.unsupervised.owdistances.OWDistances"                           project_name="Orange3" version="" title="Distances (Euclidean)"          position="(280, 920)" />
+        <node id="11" name="Hierarchical Clustering"    qualified_name="Orange.widgets.unsupervised.owhierarchicalclustering.OWHierarchicalClustering"  project_name="Orange3" version="" title="Hierarchical Clustering"        position="(520, 920)" />
+        <node id="12" name="k-Means"                    qualified_name="Orange.widgets.unsupervised.owkmeans.OWKMeans"                                  project_name="Orange3" version="" title="k-Means"                        position="(520, 1060)" />
+        <node id="13" name="Silhouette Plot"            qualified_name="Orange.widgets.unsupervised.owsilhouetteplot.OWSilhouettePlot"                   project_name="Orange3" version="" title="Silhouette Plot"                position="(760, 1060)" />
+        <!-- PART III SUPERVISED -->
+        <node id="14" name="kNN"              qualified_name="Orange.widgets.classify.owknn.OWKNN"                             project_name="Orange3" version="" title="kNN"            position="(760, 320)" />
+        <node id="15" name="Neural Network"   qualified_name="Orange.widgets.classify.ownn.OWNNLearner"                        project_name="Orange3" version="" title="Neural Network" position="(760, 480)" />
+        <node id="16" name="Random Forest"    qualified_name="Orange.widgets.classify.owrandomforest.OWRandomForest"           project_name="Orange3" version="" title="Random Forest"  position="(760, 640)" />
+        <node id="17" name="Test and Score"   qualified_name="Orange.widgets.evaluate.owtestlearners.OWTestLearners"           project_name="Orange3" version="" title="Test and Score (Training CV)"  position="(1000, 480)" />
+        <node id="18" name="Confusion Matrix" qualified_name="Orange.widgets.evaluate.owconfusionmatrix.OWConfusionMatrix"     project_name="Orange3" version="" title="Confusion Matrix (Train)"     position="(1240, 380)" />
+        <node id="19" name="ROC Analysis"     qualified_name="Orange.widgets.evaluate.owrocanalysis.OWROCAnalysis"             project_name="Orange3" version="" title="ROC Analysis"                  position="(1240, 520)" />
+        <node id="20" name="Predictions"      qualified_name="Orange.widgets.evaluate.owpredictions.OWPredictions"             project_name="Orange3" version="" title="Predictions (Test Set)"        position="(1000, 680)" />
+        <node id="21" name="Confusion Matrix" qualified_name="Orange.widgets.evaluate.owconfusionmatrix.OWConfusionMatrix"     project_name="Orange3" version="" title="Confusion Matrix (Test)"       position="(1240, 680)" />
+    </nodes>
+
+    <links>
+        <link id="0"  source_node_id="0"  sink_node_id="1"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="1"  source_node_id="0"  sink_node_id="2"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="2"  source_node_id="0"  sink_node_id="3"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="3"  source_node_id="0"  sink_node_id="4"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="4"  source_node_id="0"  sink_node_id="5"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="5"  source_node_id="0"  sink_node_id="6"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="6"  source_node_id="0"  sink_node_id="7"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="7"  source_node_id="0"  sink_node_id="8"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="8"  source_node_id="0"  sink_node_id="9"  source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="9"  source_node_id="0"  sink_node_id="10" source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="10" source_node_id="0"  sink_node_id="12" source_channel="Data"               sink_channel="Data"              enabled="true" />
+        <link id="11" source_node_id="10" sink_node_id="11" source_channel="Distances"          sink_channel="Distances"         enabled="true" />
+        <link id="12" source_node_id="12" sink_node_id="13" source_channel="Annotated Data"     sink_channel="Data"              enabled="true" />
+        <link id="13" source_node_id="3"  sink_node_id="17" source_channel="Data Sample"        sink_channel="Data"              enabled="true" />
+        <link id="14" source_node_id="14" sink_node_id="17" source_channel="Learner"            sink_channel="Learners"          enabled="true" />
+        <link id="15" source_node_id="15" sink_node_id="17" source_channel="Learner"            sink_channel="Learners"          enabled="true" />
+        <link id="16" source_node_id="16" sink_node_id="17" source_channel="Learner"            sink_channel="Learners"          enabled="true" />
+        <link id="17" source_node_id="17" sink_node_id="18" source_channel="Evaluation Results" sink_channel="Evaluation Results" enabled="true" />
+        <link id="18" source_node_id="17" sink_node_id="19" source_channel="Evaluation Results" sink_channel="Evaluation Results" enabled="true" />
+        <link id="19" source_node_id="3"  sink_node_id="20" source_channel="Remaining Data"     sink_channel="Data"              enabled="true" />
+        <link id="20" source_node_id="14" sink_node_id="20" source_channel="Learner"            sink_channel="Learners"          enabled="true" />
+        <link id="21" source_node_id="15" sink_node_id="20" source_channel="Learner"            sink_channel="Learners"          enabled="true" />
+        <link id="22" source_node_id="16" sink_node_id="20" source_channel="Learner"            sink_channel="Learners"          enabled="true" />
+        <link id="23" source_node_id="20" sink_node_id="21" source_channel="Evaluation Results" sink_channel="Evaluation Results" enabled="true" />
+    </links>
+
+    <node_properties>
+        <properties node_id="0"  format="literal">{}</properties>
+        <properties node_id="1"  format="literal">{}</properties>
+        <properties node_id="2"  format="literal">{}</properties>
+        <properties node_id="3"  format="literal">{"samplingType": 0, "sampleSizeNumber": 1, "sampleSizePercentage": 80, "sampleSizeRemainder": 1, "stratified": true, "replacement": false, "randomSeed": 42, "randomSeedByButton": 42}</properties>
+        <properties node_id="4"  format="literal">{}</properties>
+        <properties node_id="5"  format="literal">{}</properties>
+        <properties node_id="6"  format="literal">{}</properties>
+        <properties node_id="7"  format="literal">{}</properties>
+        <properties node_id="8"  format="literal">{}</properties>
+        <properties node_id="9"  format="literal">{}</properties>
+        <properties node_id="10" format="literal">{"metric_idx": 0, "axis": 0, "normalized_dist": true}</properties>
+        <properties node_id="11" format="literal">{"linkage": 3}</properties>
+        <properties node_id="12" format="literal">{"optimize_k": true, "k": 4, "k_from": 2, "k_to": 8, "n_init": 10, "max_iter": 300, "random_state": 42}</properties>
+        <properties node_id="13" format="literal">{}</properties>
+        <properties node_id="14" format="literal">{"n_neighbors": 11, "metric_index": 1, "weight_type": 1}</properties>
+        <properties node_id="15" format="literal">{"hidden_layers_input": "100, 50", "activation_index": 1, "solver_index": 2, "alpha_spin": 0.001, "max_iter_spin": 300}</properties>
+        <properties node_id="16" format="literal">{"n_estimators": 100, "max_depth": 10, "max_features_index": 1, "index_class_criterion": 0, "random_state": 42}</properties>
+        <properties node_id="17" format="literal">{"resampling": 1, "n_folds": 5, "shuffle": true, "stratified": true, "random_seed": 42}</properties>
+        <properties node_id="18" format="literal">{}</properties>
+        <properties node_id="19" format="literal">{}</properties>
+        <properties node_id="20" format="literal">{}</properties>
+        <properties node_id="21" format="literal">{}</properties>
+    </node_properties>
+
+    <annotations>
+        <text id="0" type="text/plain" rect="(20, 20, 680, 36)"  font-size="15" font-family="Helvetica">PART I – Data Loading &amp; Visualisation</text>
+        <text id="1" type="text/plain" rect="(20, 860, 900, 36)" font-size="15" font-family="Helvetica">PART II – Unsupervised ML (Hierarchical Clustering + k-Means)</text>
+        <text id="2" type="text/plain" rect="(700, 270, 700, 36)" font-size="15" font-family="Helvetica">PART III – Supervised ML (kNN · Neural Network · Random Forest)</text>
+    </annotations>
+
+    <thumbnail />
+    <settings version="2" />
+</scheme>
